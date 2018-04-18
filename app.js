@@ -1,5 +1,6 @@
 const config = require('./config')
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
@@ -27,7 +28,7 @@ router.route('/projects')
 router.route('/projects/:id')
     .get(projectController.getProject)
     .put(projectController.updateProject)
-
+app.use(cors());
 app.use('/api', router);
 app.listen(port, () => {
     console.log(`Running on port ${port}`)
