@@ -17,8 +17,11 @@ mongoose.connect(config.db.mainDb);
 mongoose.connection.on('error', function (...arg) {
     console.log(arguments);
 });
-router.route('/ticket/:id')
+router.route('/tickets/:id')
     .get(ticketController.getTicket)
+
+router.route('/tickets')
+    .get(ticketController.getTicketsByProject)
     .post(ticketController.createTicket)
 
 router.route('/projects')
