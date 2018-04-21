@@ -42,7 +42,7 @@ module.exports.getAllTicketsByProject = function (projectId, callback) {
             return callback(err, 500, null)
         }
         if (!project) {
-            return callback(`There is no project with id ${newTicket.project}`, 400, null)
+            return callback(`There is no project with id ${projectId}`, 400, null)
         }
         Ticket.find({
             project: projectId
